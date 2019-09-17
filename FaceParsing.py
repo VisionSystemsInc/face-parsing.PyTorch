@@ -49,7 +49,7 @@ class FaceParsing(object):
         pt_images = pt_images.to('cuda:{}'.format(device))
 
         out = self.label(pt_images)
-        parsings = out.squeeze(0).cpu().numpy().argmax(1).astype(np.uint8)
+        parsings = out.cpu().numpy().argmax(axis=1).astype(np.uint8)
 
         parsings = [Image.fromarray(parsing).resize((in_size, in_size))
                 for parsing, in_size in zip(parsings, in_sizes)]
