@@ -8,7 +8,8 @@ from face_parsing.model import BiSeNet
 
 class FaceParsing(object):
     def __init__(self, model_path=None):
-        if model_path is None: 
+        if model_path is None:
+            # REVIEW this is a terrible default
             model_path = '../../../external/data/models/face_parsing/face_parsing_79999_iter.pth'
 
         self.net = BiSeNet(n_classes=19)
@@ -49,7 +50,7 @@ class FaceParsing(object):
 
         out = self.label(pt_images)
         parsings = out.squeeze(0).cpu().numpy().argmax(1).astype(np.uint8)
-        
+
         parsings = [Image.fromarray(parsing).resize((in_size, in_size))
                 for parsing, in_size in zip(parsings, in_sizes)]
 
