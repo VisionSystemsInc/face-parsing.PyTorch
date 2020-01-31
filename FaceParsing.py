@@ -30,6 +30,10 @@ class FaceParsing(object):
         # device : which CUDA device to run on
         #
         # returns parsings : list of PIL Images
+        #
+        # 0 - background, 1 - skin, 2 - l_brow, 3 - r_brow, 4 - l_eye, 5 - r_eye, 6 - eye_g (eye glasses),
+        # 7 - l_ear, 8 - r_ear, 9 - ear_r (ear ring), 10 - nose, 11 - mouth, 12 - u_lip, 13 - l_lip,
+        # 14 - neck, 15 - neck_l (necklace), 16 - cloth, 17 - hair, 18 - hat
 
         # move the network to the correct device
         self.net.to('cuda:{}'.format(device))
