@@ -21,9 +21,24 @@ class FaceParsing(object):
             transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
         ])
 
+        self.label_by_idx = collections.OrderedDict(
+                [(-1, 'unlabeled'), (0, 'background'), (1, 'skin'),
+                 (2, 'l_brow'), (3, 'r_brow'), (4, 'l_eye'), (5, 'r_eye'),
+                 (6, 'eye_g (eye glasses)'), (7, 'l_ear'), (8, 'r_ear'), (9, 'ear_r (ear ring)'),
+                 (10, 'nose'), (11, 'mouth'), (12, 'u_lip'), (13, 'l_lip'),
+                 (14, 'neck'), (15, 'neck_l (necklace)'), (16, 'cloth'),
+                 (17, 'hair'), (18, 'hat')])
+        self.idx_by_label = {v: k for k,v in self.label_by_idx.iteritems()}
+
     def to_tensor(self, images):
         # images : N,H,W,C numpy.array
         return self.transform(images)
+
+    def label_for_idx(idx):
+        return self.label_by_idx[idx]
+
+    def idx_for_label(label):
+        return self.idx_by_label[label]
 
     def parse_face(self, images, device=0):
         # images : list of PIL Images
