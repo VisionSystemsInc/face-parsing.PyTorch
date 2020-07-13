@@ -2,6 +2,7 @@ import os
 import numpy as np
 import torch
 from PIL import Image
+import collections
 import torchvision.transforms as transforms
 
 from face_parsing.model import BiSeNet
