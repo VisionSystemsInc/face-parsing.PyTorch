@@ -14,7 +14,7 @@ class FaceParsing(object):
             model_path = '../../../external/data/models/face_parsing/face_parsing_79999_iter.pth'
 
         self.net = BiSeNet(n_classes=19)
-        self.net.load_state_dict(torch.load(model_path))
+        self.net.load_state_dict(torch.load(model_path, map_location='cpu'))
         self.net.eval()
 
         self.transform = transforms.Compose([
