@@ -29,7 +29,7 @@ class FaceParsing(object):
                  (10, 'nose'), (11, 'mouth'), (12, 'u_lip'), (13, 'l_lip'),
                  (14, 'neck'), (15, 'neck_l (necklace)'), (16, 'cloth'),
                  (17, 'hair'), (18, 'hat')])
-        self.idx_by_label = {v: k for k,v in self.label_by_idx.iteritems()}
+        self.idx_by_label = {v: k for k,v in self.label_by_idx.items()}
 
     def to_tensor(self, images):
         # images : N,H,W,C numpy.array
