@@ -12,7 +12,7 @@ import numpy as np
 import json
 import cv2
 
-from transform import *
+from .transform import *
 
 
 

@@ -1,12 +1,12 @@
 #!/usr/bin/python
 # -*- encoding: utf-8 -*-
 
-from logger import setup_logger
-from model import BiSeNet
-from face_dataset import FaceMask
-from loss import OhemCELoss
-from evaluate import evaluate
-from optimizer import Optimizer
+from .logger import setup_logger
+from .model import BiSeNet
+from .face_dataset import FaceMask
+from .loss import OhemCELoss
+from .evaluate import evaluate
+from .optimizer import Optimizer
 import cv2
 import numpy as np
 

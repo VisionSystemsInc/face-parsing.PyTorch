@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- encoding: utf-8 -*-
 
-from logger import setup_logger
-from model import BiSeNet
+from .logger import setup_logger
+from .model import BiSeNet
 
 import torch
 
