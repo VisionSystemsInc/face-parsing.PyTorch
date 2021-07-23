@@ -71,7 +71,7 @@ class FaceParsing(object):
         out = self.label(pt_images)
         parsings = out.cpu().numpy().argmax(axis=1).astype(np.uint8)
 
-        parsings = [Image.fromarray(parsing).resize((in_size, in_size))
+        parsings = [Image.fromarray(parsing).resize((in_size, in_size), Image.NEAREST)
                 for parsing, in_size in zip(parsings, in_sizes)]
 
         return parsings # list of PIL Images
