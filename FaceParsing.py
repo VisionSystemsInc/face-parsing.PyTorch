@@ -41,8 +41,9 @@ class FaceParsing(object):
     def idx_for_label(label):
         return self.idx_by_label[label]
 
+    # TODO rename to label_image to contrast with label, which takes a tensor
     def parse_face(self, images, device=0):
-        # images : list of PIL Images
+        # images : list of square PIL Images
         # device : which CUDA device to run on
         #
         # returns parsings : list of PIL Images
