@@ -53,6 +53,7 @@ class FaceParsing(object):
         # 14 - neck, 15 - neck_l (necklace), 16 - cloth, 17 - hair, 18 - hat
 
         # move the network to the correct device
+        # REVIEW this makes it imposible to run on the cpu...
         self.net.to('cuda:{}'.format(device))
 
         assert all(im.size[0] == im.size[1] for im in images)
